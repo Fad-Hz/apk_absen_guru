@@ -25,4 +25,9 @@ class AuthModel extends Model
                     ->findAll();
     }
 
+    public function getUsersWithGuru()
+    {
+        return $this->with('guru')->findAll();
+    }
+
 }

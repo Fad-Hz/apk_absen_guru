@@ -35,11 +35,12 @@
 <?php endif; ?>
 
 <!-- Form -->
-<form action="/admin/setalpa" method="post" class="uk-margin">
+<form action="<?= base_url('admin/setalpa'); ?>" method="post" class="uk-margin">
     <button type="submit" class="uk-button uk-button-primary uk-border-rounded">
         Set Alpa
     </button>
 </form>
+
 <!-- Table -->
 <div class="uk-overflow-auto">
     <table class="uk-table uk-table-divider uk-table-striped uk-table-hover uk-box-shadow-small">
@@ -60,9 +61,8 @@
                     <td><?= $a['tanggal']; ?></td>
                     <td>
                         <?php
-                        // Pastikan nilai 'poin' diambil dengan benar
                         foreach ($poin as $p) {
-                            if ($p['id_guru'] === $a['id_guru']) { // Sesuaikan logika sesuai kebutuhan
+                            if ($p['id_guru'] === $a['id_guru']) {
                                 echo $p['total_poin'];
                                 break;
                             }
@@ -74,7 +74,6 @@
         </tbody>
     </table>
 </div>
-
 
 <div style="margin-bottom: 5rem;"></div>
 

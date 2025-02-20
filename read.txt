@@ -1,0 +1,15 @@
+# database name = apk_absen
+
+01. Admin 
+username: adm
+password: 123 
+
+02. User 
+ username = user1 (Pak Abed)
+ password = 123 
+ 
+ username = user2 (Bu Susan)
+ password = 123
+
+
+#   CLI untuk reset status ke "Belum Absen" setiap harinya = "php spark guru:reset-status"

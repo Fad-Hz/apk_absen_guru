@@ -64,7 +64,7 @@
             </a>
         </div>
         <div class="uk-navbar-right">
-            <a href="/logout" class="uk-button uk-button-danger uk-button-small">Logout</a>
+            <a href="<?= base_url('logout') ?>" class="uk-button uk-button-danger uk-button-small">Logout</a>
         </div>
     </nav>
 
@@ -74,8 +74,8 @@
             <h1 class="uk-heading-medium hero-title">Selamat Datang di Admin Dashboard</h1>
             <p class="uk-text-lead">Kelola data dan pantau aktivitas dengan mudah dan efisien.</p>
             <div class="hero-buttons uk-margin">
-                <a href="#dashboard" class="uk-button uk-button-default uk-button-large uk-margin-small-right">Lihat Dashboard</a>
-                <a href="#learn-more" class="uk-button uk-button-secondary uk-button-large">Pelajari Fitur</a>
+                <a href="<?= base_url('/admin/dashboard#dashboard') ?>" class="uk-button uk-button-default uk-button-large uk-margin-small-right">Lihat Dashboard</a>
+                <a href="<?= base_url('/admin/dashboard#learn-more') ?>" class="uk-button uk-button-secondary uk-button-large">Pelajari Fitur</a>
             </div>
         </div>
     </div>
@@ -84,14 +84,18 @@
     <div id="offcanvas-sidebar" uk-offcanvas="overlay: true">
         <div class="uk-offcanvas-bar">
             <h3>Menu Navigasi</h3>
-            <ul class="uk-nav uk-nav-default">
-                <li><a href="/admin/datascan"><span uk-icon="icon: qrcode"></span> Data Scan QR</a></li>
-                <li><a href="/admin/dataguru"><span uk-icon="icon: users"></span> Semua Data Guru</a></li>
-                <li><a href="/admin/datamapel"><span uk-icon="icon: file-text"></span> Data Mata Pelajaran</a></li>
+             <ul class="uk-nav uk-nav-default">
+                <li><a href="<?= base_url('/admin/datascan') ?>"><span uk-icon="icon: qrcode"></span> Data Scan QR</a></li>
+                <li><a href="<?= base_url('/admin/dataguru') ?>"><span uk-icon="icon: users"></span> Semua Data Guru</a></li>
+                <li><a href="<?= base_url('/admin/datamapel') ?>"><span uk-icon="icon: file-text"></span> Data Mata Pelajaran</a></li>
                 <li class="uk-nav-divider"></li>
-                <li><a href="/admin/dataalpa"><span uk-icon="icon: ban"></span> Guru Alpa Hari Ini</a></li>
-                <li><a href="/admin/dataijin"><span uk-icon="icon: sign-out"></span> Guru Ijin Hari Ini</a></li>
-                <li><a href="/admin/datakehadiran"><span uk-icon="icon: check"></span> Guru Yang Hadir Hari Ini</a></li>
+                <li><a href="<?= base_url('/admin/dataalpa') ?>"><span uk-icon="icon: ban"></span> Guru Alpa Hari Ini</a></li>
+                <li><a href="<?= base_url('/admin/dataijin') ?>"><span uk-icon="icon: sign-out"></span> Guru Ijin Hari Ini</a></li>
+                <li><a href="<?= base_url('/admin/datakehadiran') ?>"><span uk-icon="icon: check"></span> Guru Yang Hadir Hari Ini</a></li>
+                <li><a href="<?= base_url('/admin/datauser') ?>"><span uk-icon="icon: users"></span> Kelola Data User</a></li>
+                <li><a href="<?= base_url('/admin/datagaji') ?>"><span uk-icon="icon: credit-card"></span> Kelola Data Penggajian</a></li>
+                <li><a href="<?= base_url('/admin/persentase') ?>"><span uk-icon="icon: percent"></span> Persentase Kehadiran Guru</a></li>
+                <li><a href="<?= base_url('/admin/analisis-absen') ?>"><span uk-icon="icon: chart-line"></span> Analisis Absensi Guru</a></li>
             </ul>
         </div>
     </div>
@@ -107,7 +111,7 @@
                         <span uk-icon="icon: qrcode; ratio: 2"></span>
                         <h3 class="uk-card-title">Data Scan QR</h3>
                         <p>Kelola data scan QR harian di sini.</p>
-                        <a href="/admin/datascan" class="uk-button uk-button-primary">Lihat Data</a>
+                        <a href="<?= base_url('/admin/datascan') ?>" class="uk-button uk-button-primary">Lihat Data</a>
                     </div>
                 </div>
                 <!-- Card 2 -->
@@ -116,7 +120,7 @@
                         <span uk-icon="icon: users; ratio: 2"></span>
                         <h3 class="uk-card-title">Data Guru</h3>
                         <p>Lihat dan kelola semua data guru.</p>
-                        <a href="/admin/dataguru" class="uk-button uk-button-primary">Lihat Data</a>
+                        <a href="<?= base_url('/admin/dataguru') ?>" class="uk-button uk-button-primary">Lihat Data</a>
                     </div>
                 </div>
                 <!-- Card 3 -->
@@ -125,7 +129,7 @@
                         <span uk-icon="icon: file-text; ratio: 2"></span>
                         <h3 class="uk-card-title">Data Mata Pelajaran</h3>
                         <p>Kelola data mata pelajaran dengan mudah.</p>
-                        <a href="/admin/datamapel" class="uk-button uk-button-primary">Lihat Data</a>
+                        <a href='<?= base_url("/admin/datamapel") ?>' class="uk-button uk-button-primary">Lihat Data</a>
                     </div>
                 </div>
             </div>

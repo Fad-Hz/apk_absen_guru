@@ -29,6 +29,7 @@ class UserController extends BaseController
 
     public function aksi_ijin()
     {
+        date_default_timezone_set('Asia/Jakarta');
         $ijin_model = new IJinModel();
         $guru = new GuruModel();
 
@@ -37,6 +38,7 @@ class UserController extends BaseController
         }
         $id_guru = session()->get('id_guru');
         $tanggal = date('Y-m-d');
+        $jam = date('H:i:s');
         $keterangan = $this->request->getPost('keterangan');
 
         $existing_ijin = $ijin_model->where('id_guru', $id_guru)
@@ -50,6 +52,7 @@ class UserController extends BaseController
         $data = [
             'id_guru' => $id_guru,
             'tanggal' => $tanggal,
+            'jam_ijin' => $jam,
             'keterangan' => $keterangan,
             'poin' => 1,
         ];
@@ -69,10 +72,5 @@ class UserController extends BaseController
             'scan' => $scan->findAll()
         ];
         return view('user/presensi', $data);
-    }
-
-    public function tes ()
-    {
-        return view('user/scan');
     }
 }

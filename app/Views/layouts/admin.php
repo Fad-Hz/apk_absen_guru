@@ -39,7 +39,7 @@
             </a>
         </div>
         <div class="uk-navbar-right">
-            <a href="/logout" class="uk-button uk-button-danger uk-button-small">Logout</a>
+            <a href="<?= base_url('logout') ?>" class="uk-button uk-button-danger uk-button-small">Logout</a>
         </div>
     </nav>
 
@@ -49,13 +49,17 @@
         <div class="uk-offcanvas-bar">
             <h3>Menu Navigasi</h3>
             <ul class="uk-nav uk-nav-default">
-                <li><a href="/admin/datascan"><span uk-icon="icon: qrcode"></span> Data Scan QR</a></li>
-                <li><a href="/admin/dataguru"><span uk-icon="icon: users"></span> Semua Data Guru</a></li>
-                <li><a href="/admin/datamapel"><span uk-icon="icon: file-text"></span> Data Mata Pelajaran</a></li>
+                <li><a href="<?= base_url('/admin/datascan') ?>"><span uk-icon="icon: qrcode"></span> Data Scan QR</a></li>
+                <li><a href="<?= base_url('/admin/dataguru') ?>"><span uk-icon="icon: users"></span> Semua Data Guru</a></li>
+                <li><a href="<?= base_url('/admin/datamapel') ?>"><span uk-icon="icon: file-text"></span> Data Mata Pelajaran</a></li>
                 <li class="uk-nav-divider"></li>
-                <li><a href="/admin/dataalpa"><span uk-icon="icon: ban"></span> Guru Alpa Hari Ini</a></li>
-                <li><a href="/admin/dataijin"><span uk-icon="icon: sign-out"></span> Guru Ijin Hari Ini</a></li>
-                <li><a href="/admin/datakehadiran"><span uk-icon="icon: check"></span> Guru Yang Hadir Hari Ini</a></li>
+                <li><a href="<?= base_url('/admin/dataalpa') ?>"><span uk-icon="icon: ban"></span> Guru Alpa Hari Ini</a></li>
+                <li><a href="<?= base_url('/admin/dataijin') ?>"><span uk-icon="icon: sign-out"></span> Guru Ijin Hari Ini</a></li>
+                <li><a href="<?= base_url('/admin/datakehadiran') ?>"><span uk-icon="icon: check"></span> Guru Yang Hadir Hari Ini</a></li>
+                <li><a href="<?= base_url('/admin/datauser') ?>"><span uk-icon="icon: users"></span> Kelola Data User</a></li>
+                <li><a href="<?= base_url('/admin/datagaji') ?>"><span uk-icon="icon: credit-card"></span> Kelola Data Penggajian</a></li>
+                <li><a href="<?= base_url('/admin/persentase') ?>"><span uk-icon="icon: percent"></span> Persentase Kehadiran Guru</a></li>
+                <li><a href="<?= base_url('/admin/analisis-absen') ?>"><span uk-icon="icon: chart-line"></span> Analisis Absensi Guru</a></li>
             </ul>
         </div>
     </div>

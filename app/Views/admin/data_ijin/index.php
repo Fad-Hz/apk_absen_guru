@@ -14,6 +14,7 @@
             <tr>
                 <th>No</th>
                 <th><span uk-icon="icon: calendar"></span> Tanggal</th>
+                <th><span uk-icon="icon: clock"></span> Jam</th>
                 <th><span uk-icon="icon: user"></span> Nama Guru</th>
                 <th><span uk-icon="icon: info"></span> Keterangan</th>
                 <th><span uk-icon="icon: sign-out"></span> Total Ijin</th>
@@ -25,6 +26,7 @@
                 <tr>
                     <td><?= $no++; ?></td>
                     <td><?= $i['tanggal']; ?></td>
+                    <td><?= $i['jam_ijin']; ?></td>
                     <td><?= $i['nama_guru']; ?></td>
                     <td>
                         <span class="uk-label uk-label-default"><?= $i['keterangan']; ?></span>

@@ -12,9 +12,11 @@ class ScanQrController extends BaseController
     {
         $scan_qr = new ScanQrModel();
         $today = Time::now('Asia/Jakarta')->toDateString();
-        if ($scan_qr->isGenerated($today)) {
-            return redirect()->to('/admin/datascan')->with('error', 'QR sudah di generate untuk hari ini!');
-        }
+        
+        // validasi scan hari ini
+        // if ($scan_qr->isGenerated($today)) {
+        //     return redirect()->to('/admin/datascan')->with('error', 'QR sudah di generate untuk hari ini!');
+        // }
         $data = [
             'generate_scan' => uniqid('QR_'),
             'tanggal' => $today

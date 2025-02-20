@@ -5,7 +5,7 @@
 
 <!-- Breadcrumbs -->
 <ul class="uk-breadcrumb">
-    <li><a href="/admin/dashboard"><span uk-icon="icon: home"></span> Dashboard</a></li>
+    <li><a href="<?= base_url('admin/dashboard') ?>"><span uk-icon="icon: home"></span> Dashboard</a></li>
     <li><span>Scan QR</span></li>
 </ul>
 
@@ -32,7 +32,7 @@
     <!-- Date -->
     <h4 class="uk-margin-remove-bottom">
         <span uk-icon="icon: calendar"></span>
-        <?= isset($scan[0]['tanggal']) ? $scan[0]['tanggal'] : 'Tidak Ada Data'; ?>
+        <?= isset($scan[0]['tanggal']) ? $scan[0]['tanggal'].'<br>'.$scan[0]['generate_scan']: 'Tidak Ada Data'; ?>
     </h4>
 
     <!-- QR Code Conditional Rendering -->
@@ -41,8 +41,8 @@
         <script>
             new QRCode(document.getElementById('qr-container'), {
                 text: '<?= $scan[0]['generate_scan']; ?>',
+                height: 200,
                 width: 200, // Ukuran QR Code
-                height: 200
             });
         </script>
     <?php else: ?>
@@ -52,7 +52,7 @@
     <?php endif; ?>
 
     <!-- Button -->
-    <form action="/admin/generatescan" method="POST" class="uk-margin-top" style="margin-bottom: 5rem;">
+    <form action="<?= base_url('/admin/generatescan') ?>" method="POST" class="uk-margin-top" style="margin-bottom: 5rem;">
         <button class="uk-button uk-button-primary uk-button-large uk-border-rounded" type="submit">
             <span uk-icon="icon: plus-circle"></span> Generate QR Code Baru
         </button>

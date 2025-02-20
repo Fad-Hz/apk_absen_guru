@@ -1,65 +1,77 @@
-<?= $this->extend('layouts/admin'); ?>
-<?= $this->section('content'); ?>
+<?= $this->extend('layouts/admin') ?>
 
-<!-- Breadcrumbs -->
-<ul class="uk-breadcrumb">
-    <li><a href="/admin/dashboard"><span uk-icon="icon: home"></span> Dashboard</a></li>
-    <li><span>Mata Pelajaran</span></li>
-</ul>
-<?php if (session()->getFlashdata('success')): ?>
-    <div class="uk-alert-success" uk-alert>
-        <a class="uk-alert-close" uk-close></a>
-        <p><span uk-icon="icon: check"></span> Berhasil Create Data. </p>
-    </div>
-<?php endif; ?>
+<?= $this->section('content') ?>
+<div class="uk-container uk-margin-top">
 
-<?php if (session()->getFlashdata('succes')): ?>
-    <div class="uk-alert-success" uk-alert>
-        <a class="uk-alert-close" uk-close></a>
-        <p><span uk-icon="icon: check"></span> Berhasil Delete Data. </p>
-    </div>
-<?php endif; ?>
+    <ul class="uk-breadcrumb">
+        <li><span uk-icon="icon:home"></span><a href="<?= base_url('admin') ?>"> Dashboard</a></li>
+        <li class="uk-disabled"><a>Data Mata Pelajaran</a></li>
+    </ul>
 
-<!-- Title -->
-<h1 class="uk-heading-line uk-text-center uk-margin-medium-bottom"><span>Data Mata Pelajaran</span></h1>
+    <h2 class="uk-heading-line uk-text-center"><span>Data Mata Pelajaran</span></h2>
 
-<!-- Tambah Mata Pelajaran Button -->
-<div class="uk-flex uk-flex-right uk-margin-medium-bottom">
-    <a href="/admin/tambahmapel" class="uk-button uk-button-primary uk-button-large uk-border-rounded">
-        <span uk-icon="icon: plus-circle"></span> Tambah Mata Pelajaran
-    </a>
-</div>
-
-<!-- Mata Pelajaran Grid -->
-<div class="uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-grid-match" uk-grid style="margin-bottom: 2rem;">
-    <?php $no = 1;
-    foreach ($mata_pelajaran as $m): ?>
-        <div>
-            <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-text-center">
-                <!-- Card Title -->
-                <h3 class="uk-card-title">
-                    <span uk-icon="icon: bookmark"></span> <?= $m['nama_mata_pelajaran']; ?>
-                </h3>
-                <!-- Subtitle -->
-                <p class="uk-text-muted">No: <?= $no++; ?></p>
-
-                <!-- Actions -->
-                <div class="uk-margin-top">
-                    <!-- Button: Hapus -->
-                    <form action="/admin/hapusmapel/<?= $m['id'] ?>" method="post" style="display: inline;">
-                        <button
-                            class="uk-button uk-button-danger uk-border-rounded uk-margin-small-right"
-                            onclick=
-                            "return confirm(`yakin ingin hapus mata pelajaran <?= $m['nama_mata_pelajaran'] ?>?`)"
-                            >
-                            <span uk-icon="icon: trash"></span> Hapus
-                        </button>
-
-                    </form>
-
-                </div>
-            </div>
+    <?php if (session()->getFlashdata('success')) : ?>
+        <div class="uk-alert-success" uk-alert>
+            <a class="uk-alert-close" uk-close></a>
+            <p><?= session()->getFlashdata('success') ?></p>
         </div>
-    <?php endforeach; ?>
+    <?php endif; ?>
+
+    <?php if (session()->getFlashdata('error')) : ?>
+        <div class="uk-alert-danger" uk-alert>
+            <a class="uk-alert-close" uk-close></a>
+            <p><?= session()->getFlashdata('error') ?></p>
+        </div>
+    <?php endif; ?>
+
+    <div class="uk-margin-bottom">
+        <a href="<?= base_url('admin/tambahmapel') ?>" class="uk-button uk-button-primary">
+            <span uk-icon="icon: plus"></span> Tambah Mata Pelajaran
+        </a>
+    </div>
+
+    <div class="uk-card uk-card-default uk-card-body">
+        <table class="uk-table uk-table-divider uk-table-striped">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Mata Pelajaran</th>
+                    <th>Jam Pelajaran</th>
+                    <th>Harga per Jam</th>
+                    <th>Angkatan (1-3)</th>
+                    <th>Guru Pengampu</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (!empty($mapel)) : ?>
+                    <?php $no = 1;
+                    foreach ($mapel as $m) : ?>
+                        <tr>
+                            <td><?= $no++ ?></td>
+                            <td><?= esc($m['nama_mapel']) ?></td>
+                            <td><?= esc($m['jp']) ?></td>
+                            <td>Rp <?= number_format($m['harga_per_jp'], 0, ',', '.') ?></td>
+                            <td><?= esc($m['angkatan']) ?></td>
+                            <td><?= esc($m['nama_guru'] ?? 'Belum Ditentukan') ?></td>
+                            <td>
+                                <a href="<?= base_url('admin/editmapel/' . $m['id']) ?>" class="uk-button uk-button-small">
+                                    <span uk-icon="icon: pencil"></span>
+                                </a>
+                                <a href="<?= base_url('admin/hapusmapel/' . $m['id']) ?>" class="uk-button uk-button-small" onclick="return confirm('Apakah Anda yakin ingin menghapus mata pelajaran ini?')">
+                                    <span uk-icon="icon: trash"></span> 
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <tr>
+                        <td colspan="7" class="uk-text-center">Tidak ada data mata pelajaran</td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
 </div>
-<?= $this->endSection(); ?>
+<div style="margin-bottom:4rem;"></div>
+<?= $this->endSection() ?>

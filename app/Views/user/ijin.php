@@ -21,7 +21,7 @@
         </p>
 
         <!-- Form -->
-        <form action="/ijin" method="post" class="uk-form-stacked uk-width-1-2@m uk-margin-auto">
+        <form action="<?= base_url('ijin') ?>" method="post" class="uk-form-stacked uk-width-1-2@m uk-margin-auto">
             <!-- Keterangan Input -->
             <div class="uk-margin">
                 <label class="uk-form-label" for="keterangan"><strong>Keterangan</strong></label>

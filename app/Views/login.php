@@ -22,7 +22,7 @@
                 <p><span uk-icon="icon: warning"></span> <?= session()->getFlashdata('error') ?></p>
             </div>
         <?php endif; ?>
-        <form action="/login" method="POST">
+        <form action="<?= base_url('login') ?>" method="POST">
             <!-- Username -->
             <div class="uk-margin">
                 <label class="uk-form-label" for="username">Username</label>
